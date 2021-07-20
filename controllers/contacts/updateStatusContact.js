@@ -1,5 +1,5 @@
-const { contact: service } = require('../../services/')
-const updateFavorite = async (req, res, next) => {
+const { contact: service } = require('../../services')
+const updateStatusContact = async (req, res, next) => {
   const { id } = req.params
   const { body } = req
   try {
@@ -21,4 +21,4 @@ const updateFavorite = async (req, res, next) => {
     next(error)
   }
 }
-module.exports = updateFavorite
+module.exports = updateStatusContact

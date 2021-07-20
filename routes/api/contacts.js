@@ -19,7 +19,7 @@ router.delete('/:id', controllers.del)
 router.patch(
   '/:id/favorite',
   validateMiddleware(validateContactByFavorite),
-  controllers.updateFavorite,
+  controllers.updateStatusContact,
 )
 
 module.exports = router
