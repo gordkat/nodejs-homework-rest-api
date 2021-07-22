@@ -1,5 +1,5 @@
-const { contact: service } = require('../../services/')
-const update = async (req, res, next) => {
+const { contact: service } = require('../../services')
+const updateContact = async (req, res, next) => {
   const { body } = req
   const { id } = req.params
   const keysOfBody = Object.keys(body).length
@@ -10,7 +10,7 @@ const update = async (req, res, next) => {
     return
   }
   try {
-    const result = await service.update(id, body)
+    const result = await service.updateContact(id, body)
     if (!result) {
       res.status(404).json({
         status: 'error',
@@ -28,4 +28,4 @@ const update = async (req, res, next) => {
     next(error)
   }
 }
-module.exports = update
+module.exports = updateContact

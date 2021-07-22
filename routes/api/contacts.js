@@ -6,15 +6,15 @@ const {
   contact: { validateContact, validateContactByFavorite },
 } = require('../../model/schemas')
 
-router.get('/', controllers.getAll)
+router.get('/', controllers.listContacts)
 
 router.get('/:id', controllers.getById)
 
-router.post('/', validateMiddleware(validateContact), controllers.add)
+router.post('/', validateMiddleware(validateContact), controllers.addContact)
 
-router.put('/:id', controllers.update)
+router.put('/:id', controllers.updateContact)
 
-router.delete('/:id', controllers.del)
+router.delete('/:id', controllers.removeContact)
 
 router.patch(
   '/:id/favorite',

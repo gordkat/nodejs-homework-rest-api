@@ -1,6 +1,6 @@
 const { Contact } = require('../model')
 
-const getAll = () => {
+const listContacts = () => {
   return Contact.find({})
 }
 const getById = async id => {
@@ -13,11 +13,11 @@ const getById = async id => {
     throw error
   }
 }
-const add = newContact => {
+const addContact = newContact => {
   return Contact.create(newContact)
 }
 
-const update = async (id, body) => {
+const updateContact = async (id, body) => {
   try {
     return await Contact.findByIdAndUpdate(id, body, { new: true })
   } catch (error) {
@@ -28,7 +28,7 @@ const update = async (id, body) => {
   }
 }
 
-const del = async id => {
+const removeContact = async id => {
   try {
     return await Contact.findByIdAndDelete(id)
   } catch (error) {
@@ -39,8 +39,15 @@ const del = async id => {
   }
 }
 
-const updateFavorite = (id, body) => {
-  return Contact.findByIdAndUpdate(id, body, { new: true })
-}
+// const updateFavorite = (id, body) => {
+//   return Contact.findByIdAndUpdate(id, body, { new: true })
+// }
 
-module.exports = { add, getAll, getById, update, del, updateFavorite }
+module.exports = {
+  addContact,
+  listContacts,
+  getById,
+  updateContact,
+  removeContact,
+  // updateFavorite,
+}

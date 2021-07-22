@@ -1,8 +1,8 @@
 const { contact: service } = require('../../services')
 
-const getAll = async (req, res, next) => {
+const listContacts = async (req, res, next) => {
   try {
-    const result = await service.getAll()
+    const result = await service.listContacts()
     res.json({
       status: 'success',
       code: 200,
@@ -13,4 +13,4 @@ const getAll = async (req, res, next) => {
   }
 }
 
-module.exports = getAll
+module.exports = listContacts
