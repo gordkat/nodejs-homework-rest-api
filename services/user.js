@@ -3,10 +3,9 @@ const gravatar = require('gravatar')
 const getOneUser = filter => {
   return User.findOne(filter)
 }
-const addUser = ({ email, password }) => {
+const addUser = ({ email, password, verifyToken }) => {
   const avatarUrl = gravatar.url(email)
-  console.log(avatarUrl)
-  const newUser = new User({ email, avatarUrl })
+  const newUser = new User({ email, avatarUrl, verifyToken })
   newUser.setPassword(password)
   return newUser.save()
 }
